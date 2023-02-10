@@ -13,10 +13,13 @@ module.exports = {
       // 函数: 动态处理返回
       // postcss-pxtorem 处理每个 css 文件的时候都会来调用这个函数，
       // 它会把处理的css文件相关函数通过参数传递给该函数
-      roootValue ({ file }) {
-        return file.indexof('vant') !== -1 ? 37.5 : 75 // 如果是vant就是37.5，自己的75
+      rootValue ({ file }) {
+        return file.indexOf('vant') !== -1 ? 37.5 : 75 // 如果是vant就是37.5，自己的75
       },
-      propList: ['*'] // 配置要转换的css属性 *代表所有
+      propList: ['*'], // 配置要转换的css属性 *代表所有
+
+      // 配置不要转换的样式资源
+      exclude: 'github-markdown'
     }
   }
 }
